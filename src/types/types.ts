@@ -43,3 +43,60 @@ export interface getProfile {
   message: string;
   success: boolean;
 }
+
+export interface chatListRequest {
+ page:number;
+ limit:number;
+ identifier?:string;
+}
+
+export interface chatListUser {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role:string,
+  status:string;
+  onlineStatus:string;
+  profileImage?: string | null;
+}
+
+export interface chatListData {
+  _id:string;
+  participants: chatListUser[];
+  admin:string;
+  createdAt:Date;
+  updatedAt:Date;
+  lastMessage:string;
+}
+
+export interface chatListResponse {
+message:string;
+success:boolean;
+count:number;
+data?:chatListData[]
+}
+
+export interface messagesRequest {
+  roomId:string;
+  limit:number;
+  lastMessageId?:string;
+}
+
+export interface messagesResponse {
+  message:string;
+  success:boolean;
+  data?:messageData[]
+}
+
+export interface messageData {
+  _id:string;
+  sender:string;
+  receiver:string[];
+  message:string;
+  room:string,
+  isSeen:boolean;
+  seenBy:string[] | []
+  createdAt:Date;
+  updatedAt:Date;
+}
