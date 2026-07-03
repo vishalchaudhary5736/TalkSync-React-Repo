@@ -9,17 +9,17 @@ const AuthLayout = () => {
         <div className="hidden lg:flex w-1/2 bg-linear-to-br from-slate-950 via-slate-900 to-indigo-950 text-white flex-col justify-center px-20">
           <div className="max-w-md">
             <h1 className="text-6xl font-bold mb-6">
-              Chat<span className="text-indigo-400">App</span>
+              Admin<span className="text-indigo-400">Panel</span>
             </h1>
 
             <p className="text-xl text-slate-300 leading-relaxed">
-              Connect with friends, teams and communities in real time.
+             Everything you need to manage your product catalog—fast, organized, and secure.
             </p>
 
             <div className="mt-12 space-y-4">
               <div className="flex items-center gap-3">
                 <span>⚡</span>
-                <p>Lightning-fast messaging</p>
+                <p>Lightning-fast management</p>
               </div>
 
               <div className="flex items-center gap-3">

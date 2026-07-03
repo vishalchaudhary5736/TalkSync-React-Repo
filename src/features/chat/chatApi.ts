@@ -4,6 +4,8 @@ import type {
   chatListResponse,
   messagesRequest,
   messagesResponse,
+  sendMessageRequest,
+  sendMessageResponse,
 } from "../../types/types";
 
 export const chatApi = baseApi.injectEndpoints({
@@ -11,6 +13,13 @@ export const chatApi = baseApi.injectEndpoints({
     chatList: builder.mutation<chatListResponse, chatListRequest>({
       query: (body) => ({
         url: "/chat/chat-list",
+        method: "POST",
+        body,
+      }),
+    }),
+    sendMessage: builder.mutation<sendMessageResponse, sendMessageRequest>({
+      query: (body) => ({
+        url: "/chat/send-message",
         method: "POST",
         body,
       }),
@@ -29,4 +38,4 @@ export const chatApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useChatListMutation, useMessagesQuery } = chatApi;
+export const { useChatListMutation, useMessagesQuery, useLazyMessagesQuery, useSendMessageMutation } = chatApi;

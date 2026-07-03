@@ -24,7 +24,9 @@ const Register = () => {
 
   const onSubmit = async (data: signup) => {
     try {
-      const response = await signup(data).unwrap();
+      const payload = {...data};
+      delete payload.confirmPassword
+      const response = await signup(payload).unwrap();
       console.log("response=>", response);
       dispatch(
         login({

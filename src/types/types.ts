@@ -3,7 +3,7 @@ export interface user {
   firstName: string;
   lastName: string;
   email: string;
-  phoneNumber: string;
+  mobileNumber: string;
   countryCode: string;
   password?: string | null;
   profileImage?: string | null;
@@ -12,8 +12,9 @@ export interface user {
   isActive: string;
   status: string;
   onlineStatus: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
+  address:string;
 }
 
 export interface signupType {
@@ -30,7 +31,7 @@ export interface signup {
   phoneNumber: string;
   countryCode: string;
   password: string;
-  confirmPassword: string;
+  confirmPassword?: string;
 }
 
 export interface loginInterface {
@@ -45,9 +46,9 @@ export interface getProfile {
 }
 
 export interface chatListRequest {
- page:number;
- limit:number;
- identifier?:string;
+  page: number;
+  limit: number;
+  identifier?: string;
 }
 
 export interface chatListUser {
@@ -55,48 +56,59 @@ export interface chatListUser {
   firstName: string;
   lastName: string;
   email: string;
-  role:string,
-  status:string;
-  onlineStatus:string;
+  role: string;
+  status: string;
+  onlineStatus: string;
   profileImage?: string | null;
 }
 
 export interface chatListData {
-  _id:string;
+  _id: string;
   participants: chatListUser[];
-  admin:string;
-  createdAt:Date;
-  updatedAt:Date;
-  lastMessage:string;
+  admin: string;
+  createdAt: Date;
+  updatedAt: Date;
+  lastMessage: string;
 }
 
 export interface chatListResponse {
-message:string;
-success:boolean;
-count:number;
-data?:chatListData[]
+  message: string;
+  success: boolean;
+  count: number;
+  data?: chatListData[];
 }
 
 export interface messagesRequest {
-  roomId:string;
-  limit:number;
-  lastMessageId?:string;
+  roomId: string;
+  limit: number;
+  lastMessageId?: string;
 }
 
 export interface messagesResponse {
-  message:string;
-  success:boolean;
-  data?:messageData[]
+  message: string;
+  success: boolean;
+  data?: messageData[];
 }
 
 export interface messageData {
-  _id:string;
-  sender:string;
-  receiver:string[];
-  message:string;
-  room:string,
-  isSeen:boolean;
-  seenBy:string[] | []
-  createdAt:Date;
-  updatedAt:Date;
+  _id: string;
+  sender: string;
+  receiver: string[];
+  message: string;
+  room: string;
+  isSeen: boolean;
+  seenBy: string[] | [];
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface sendMessageRequest {
+  roomId: string;
+  message: string;
+}
+
+export interface sendMessageResponse {
+  success: boolean;
+  message: string;
+  data: messageData;
 }

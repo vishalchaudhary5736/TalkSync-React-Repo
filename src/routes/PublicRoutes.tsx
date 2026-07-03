@@ -3,7 +3,7 @@ import { useAppSelector } from "../hooks/reduxHooks";
 
 const PublicRoute = () => {
   const token = useAppSelector((state) => state.auth.token);
-  return token ? <Navigate to="/chat" /> : <Outlet />;
+  return token ? <Navigate to="/dashboard" /> : <Outlet />;
 };
 
 export default PublicRoute;
